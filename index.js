@@ -9,20 +9,32 @@ const { format } = require('date-fns'); // a dependency for node js (date-functi
 // insert
 function insert(tbl, cols) {
     let colsVal = '';
+    let colsCount = 0;
     if (cols instanceof Array) {
         // Specifying the collumns
-        for (i = 0; i < cols.length; i++) {
+        for (let i = 0; i < cols.length; i++) {
             colsVal += '`' + cols[i] + '`';
             if (i !== (cols.length - 1)) {
                 colsVal += ', ';
             }
         }
+        colsCount = cols.length;
     } else {
         colsVal = '`' + cols + '`';
+        colsCount = 1;
+    }
+
+    // adding "?" to INSERT statement
+    let qMark = '';
+    for (let j = 0; j < colsCount; j++) {
+        qMark += '?';
+        if (j !== (colsCount - 1)) {
+            qMark += ', ';
+        }
     }
 
     // INSERT INTO `users` (`username`, `password`) VALUES (?)
-    const q = "INSERT INTO `" + tbl + "` (" + colsVal + ") VALUES (?)";
+    const q = "INSERT INTO `" + tbl + "` (" + colsVal + ") VALUES (" + qMark + ")";
     return q;
 }
 
