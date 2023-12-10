@@ -20,4 +20,7 @@ List of Functions to be used:
     - chkColInTbl
     - updateSingleVal
 
-    
+
+You can install this with npm:
+
+    - npm i node-mysql-sql-builder
