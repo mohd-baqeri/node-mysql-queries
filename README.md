@@ -7,19 +7,18 @@ Dependency:
 
 List of Functions to be used:
 
-    - insert
-    - update
-    - getRows
+    - addRow
+    - updateRow
     - deleteRow
+    - getRows
+    - getFirstRow
+    - getLastRow
+    - getNextRows
+    - getPrevRows
+    - getDistinctRows
+    - getRowMath
     - searchRows
-    - getRowById
-    - getRowsByCol
-    - getRowsByCols
-    - getRowsList
-    - getDistinct
-    - chkColInTbl
     - updateSingleVal
-
 
 You can install this with npm:
 
